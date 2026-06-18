@@ -1,0 +1,6 @@
+{
+  "name": "Chrunchizz Web Experience",
+  "description": "Mumbai’s first premium Gourmet S'mores Café landing screen, equipped with interactive custom ingredient builders, live layers stacks, and a late-night sweet mood quiz.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
