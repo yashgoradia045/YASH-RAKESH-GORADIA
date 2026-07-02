@@ -10,14 +10,11 @@ import Footer from './components/Footer';
 import MoodQuiz from './components/MoodQuiz';
 import SplitText from './components/SplitText';
 import { useToast } from './components/Toast';
-import { Flame, Play, Sparkles, MessageCircle, Info, ShieldCheck } from 'lucide-react';
-// @ts-ignore
-import heroSmoreImage from './assets/images/regenerated_image_1781756978616.png';
+import { MessageCircle } from 'lucide-react';
 
 export default function App() {
   const { addToast } = useToast();
   const [isQuizOpen, setIsQuizOpen] = useState(false);
-  const [isPlayingDemo, setIsPlayingDemo] = useState(false);
 
   const handleScrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -33,14 +30,6 @@ export default function App() {
     }, 600);
   };
 
-  const handlePlayDemo = () => {
-    setIsPlayingDemo(true);
-    addToast("🔥 Simulating the ultimate caramelized marshmallow stretch...", "fire");
-    setTimeout(() => {
-      setIsPlayingDemo(false);
-    }, 4500);
-  };
-
   return (
     <div className="bg-stone-50 text-stone-900 min-h-screen font-sans selection:bg-amber-200">
       
@@ -48,167 +37,99 @@ export default function App() {
       <Navbar />
 
       {/* Hero Section Container */}
-      <header className="relative pt-24 pb-16 md:py-32 overflow-hidden bg-gradient-to-b from-amber-50/60 to-stone-50">
+      <header className="relative pt-32 pb-24 md:py-44 overflow-hidden bg-stone-950 flex items-center justify-center min-h-[85vh]">
         
-        {/* Soft warmth radial background lighting */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none select-none z-0">
-          <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl" />
-          <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-orange-100/30 rounded-full blur-3xl" />
+        {/* Cinematic Background Video Loop */}
+        <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden select-none z-0">
+          <iframe
+            src="https://www.youtube.com/embed/wzmLClHVFwk?autoplay=1&mute=1&playlist=wzmLClHVFwk&loop=1&controls=0&rel=0&showinfo=0&iv_load_policy=3&modestbranding=1&playsinline=1"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115%] h-[115%] aspect-video object-cover min-w-full min-h-full opacity-90 scale-105"
+            allow="autoplay; encrypted-media"
+            title="Mumbai's First Gourmet S'mores Background Video"
+          />
+          {/* Rich Dark Glass Overlay to ensure stunning readability */}
+          <div className="absolute inset-0 bg-stone-950/45 backdrop-blur-[1.5px]" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center justify-center">
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 70, damping: 17, delay: 0.1 }}
+            className="space-y-8 text-center flex flex-col items-center"
+          >
             
-            {/* Left Texts Content: spans 6 columns with smooth spring transitions mirroring thecookie-co.com */}
-            <motion.div 
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", stiffness: 70, damping: 17, delay: 0.1 }}
-              className="lg:col-span-6 space-y-6 text-center lg:text-left"
-            >
-              
-              {/* Focus tags */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
-                <span className="inline-flex items-center gap-1 bg-amber-100/90 text-amber-800 text-[11px] font-mono font-bold uppercase px-3 py-1 rounded-full border border-amber-200">
-                  🍢 Mumbai's First & Original
-                </span>
-                <span className="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-800 text-[11px] font-mono font-bold uppercase px-3 py-1 rounded-full">
-                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping" />
-                  100% Vegetarian Puffs
-                </span>
-              </div>
+            {/* Focus tags */}
+            <div className="flex flex-wrap items-center justify-center gap-2.5">
+              <span className="inline-flex items-center gap-1 bg-amber-500/20 text-amber-300 text-[11px] font-mono font-bold uppercase px-3.5 py-1.5 rounded-full border border-amber-500/30">
+                🍢 Mumbai's First & Original
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-emerald-500/20 text-emerald-300 text-[11px] font-mono font-bold uppercase px-3.5 py-1.5 rounded-full border border-emerald-500/30">
+                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-ping" />
+                100% Vegetarian Puffs
+              </span>
+            </div>
 
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6.5xl text-stone-950 tracking-tight leading-[1.1] font-semibold flex flex-col items-center lg:items-start select-none">
-                <SplitText 
-                  text="Mumbai’s First" 
-                  delay={0.1}
-                  translateY={24}
-                  stiffness={130}
-                  damping={14}
-                />
-                <SplitText 
-                  text="Gourmet S'mores" 
-                  delay={0.25}
-                  translateY={24}
-                  stiffness={130}
-                  damping={14}
-                  className="font-serif italic font-normal text-amber-800"
-                />
-                <SplitText 
-                  text="Experience." 
-                  delay={0.4}
-                  translateY={24}
-                  stiffness={130}
-                  damping={14}
-                />
-              </h1>
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl text-white tracking-tight leading-[1.15] font-semibold flex flex-col items-center select-none">
+              <SplitText 
+                text="Mumbai’s First" 
+                delay={0.1}
+                translateY={24}
+                stiffness={130}
+                damping={14}
+              />
+              <SplitText 
+                text="Gourmet S'mores" 
+                delay={0.25}
+                translateY={24}
+                stiffness={130}
+                damping={14}
+                className="font-serif italic font-normal text-amber-400"
+              />
+              <SplitText 
+                text="Experience." 
+                delay={0.4}
+                translateY={24}
+                stiffness={130}
+                damping={14}
+              />
+            </h1>
 
-              <p className="text-stone-700 text-sm sm:text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
-                Crispy. Gooey. Completely Customizable. Step inside Chrunchizz and torch up your dessert game with caramelized vegetarian puffs stacked beside rich Belgian chocolate.
-              </p>
+            <p className="text-stone-200 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
+              Crispy. Gooey. Completely Customizable. Step inside Chrunchizz and torch up your dessert game with caramelized vegetarian puffs stacked beside rich Belgian chocolate.
+            </p>
 
-              {/* Delivery info & Operational indicators */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-mono font-bold text-stone-600 pt-1">
-                <span className="flex items-center gap-1">
-                  🚗 Fast Delivery until 1:00 AM
-                </span>
-                <span className="text-stone-300 hidden sm:inline">•</span>
-                <span className="flex items-center gap-1">
-                  📍 Bandra, Carter Road Outlets
-                </span>
-              </div>
+            {/* Delivery info & Operational indicators */}
+            <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono font-bold text-stone-300 pt-1">
+              <span className="flex items-center gap-1 bg-stone-900/50 px-3.5 py-2 rounded-md border border-stone-800">
+                🚗 Fast Delivery until 1:00 AM
+              </span>
+              <span className="text-stone-500 hidden sm:inline">•</span>
+              <span className="flex items-center gap-1 bg-stone-900/50 px-3.5 py-2 rounded-md border border-stone-800">
+                📍 Bandra, Carter Road Outlets
+              </span>
+            </div>
 
-              {/* CTA Actions */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-2 justify-center lg:justify-start font-sans text-xs">
-                <button
-                  onClick={() => handleScrollToSection('menu')}
-                  className="px-8 py-4 bg-stone-900 border border-stone-800 text-white rounded-full font-bold uppercase tracking-widest hover:bg-stone-800 shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer duration-350"
-                >
-                  Explore Toasted Menu
-                </button>
-                <button
-                  onClick={triggerHeroWhatsApp}
-                  className="px-8 py-4 bg-amber-600 text-white rounded-full font-bold uppercase tracking-widest hover:bg-amber-700 shadow-md transition-all flex items-center justify-center gap-2 group border border-amber-500 cursor-pointer duration-350"
-                >
-                  <MessageCircle className="w-4 h-4 fill-current text-white group-hover:scale-110 transition-transform font-bold" />
-                  Order via WhatsApp
-                </button>
-              </div>
+            {/* CTA Actions */}
+            <div className="flex flex-col sm:flex-row gap-3.5 pt-2 justify-center font-sans text-xs w-full max-w-md">
+              <button
+                onClick={() => handleScrollToSection('menu')}
+                className="flex-1 px-8 py-4 bg-white hover:bg-stone-100 text-stone-950 border border-white rounded-full font-bold uppercase tracking-widest shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer duration-350"
+              >
+                Explore Toasted Menu
+              </button>
+              <button
+                onClick={triggerHeroWhatsApp}
+                className="flex-1 px-8 py-4 bg-amber-600 text-white rounded-full font-bold uppercase tracking-widest hover:bg-amber-700 shadow-md transition-all flex items-center justify-center gap-2 group border border-amber-500 cursor-pointer duration-350"
+              >
+                <MessageCircle className="w-4 h-4 fill-current text-white group-hover:scale-110 transition-transform font-bold" />
+                Order via WhatsApp
+              </button>
+            </div>
 
-            </motion.div>
+          </motion.div>
 
-            {/* Right Visual Image Pull Pull Interaction Container: spans 6 columns with smooth spring transitions mirroring thecookie-co.com */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95, rotate: 1 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ type: "spring", stiffness: 70, damping: 16, delay: 0.3 }}
-              className="lg:col-span-6 flex justify-center w-full"
-            >
-              <div className="relative w-full max-w-md aspect-square rounded-3xl bg-white border border-stone-200/80 p-4 shadow-xl shadow-amber-900/5 overflow-hidden group">
-                
-                {/* Simulated live video/image pull layout */}
-                <div className="w-full h-full rounded-2xl overflow-hidden relative bg-stone-100 flex items-center justify-center">
-                  
-                  {isPlayingDemo ? (
-                    /* Act-drip animated visual state */
-                    <div className="absolute inset-0 z-10 bg-stone-950 flex flex-col items-center justify-center p-6 text-center animate-fade-in">
-                      <div className="absolute top-3 left-3 text-[9px] font-mono text-amber-500 uppercase font-bold bg-amber-950 px-2 py-0.5 rounded">
-                        SIMULATOR ACTIVE
-                      </div>
-                      
-                      <div className="space-y-4">
-                        {/* Animated cartoon pull stretch logic */}
-                        <div className="flex justify-between items-center w-64 mx-auto gap-1">
-                          <span className="text-3xl animate-bounce">🍪</span>
-                          <div className="flex-1 h-3 bg-amber-100 rounded-full relative overflow-hidden flex items-center justify-center">
-                            <div className="absolute h-full w-2/3 bg-amber-500 animate-pulse rounded-full" />
-                            <small className="absolute text-[6px] text-amber-900 font-bold tracking-widest uppercase font-mono">GOOEY STRETCH</small>
-                          </div>
-                          <span className="text-3xl animate-bounce">🍪</span>
-                        </div>
-                        
-                        <div className="space-y-1">
-                          <p className="text-xs font-mono font-bold text-white uppercase tracking-wider">Witnessing the Ultimate 10cm Fluff Pull</p>
-                          <p className="text-[10px] text-stone-400">Pure golden-toasted brown crust with melting Swiss cacao</p>
-                        </div>
-                      </div>
-                    </div>
-                  ) : null}
-
-                  {/* High Quality Hero Food Asset Render */}
-                  <img
-                    src={heroSmoreImage}
-                    alt="Artisanal Melted Gourmet S'mores"
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-
-                  {/* Dark gradient shadow layer */}
-                  <div className="absolute inset-0 bg-linear-to-t from-stone-950/70 via-transparent to-transparent" />
-
-                  {/* Play visual interactive trigger icon overlay */}
-                  <button
-                    onClick={handlePlayDemo}
-                    className="absolute inset-x-0 bottom-6 mx-auto w-48 py-3 bg-white/95 backdrop-blur-xs rounded-full shadow-lg flex items-center justify-center gap-2 hover:bg-amber-100 border border-stone-200 transition-all cursor-pointer group/btn"
-                  >
-                    <span className="p-1 rounded-full bg-amber-600 text-white animate-pulse">
-                      <Play className="w-3 h-3 fill-white" />
-                    </span>
-                    <span className="text-xs font-bold font-sans text-stone-950 uppercase tracking-wide group-hover/btn:text-amber-900">
-                      Simulate Fluff Pull
-                    </span>
-                  </button>
-
-                  <div className="absolute top-4 left-4 bg-stone-950/80 text-amber-400 font-mono text-[9px] font-bold px-2 py-1 rounded">
-                    WARM_TORCH.HEVC
-                  </div>
-
-                </div>
-
-              </div>
-            </motion.div>
-
-          </div>
         </div>
       </header>
 

@@ -2,13 +2,21 @@ import { MenuItem, QuizQuestion, SmoreStep, ChronologyAct } from './types';
 // @ts-ignore
 import carterRoadCampfireImage from './assets/images/regenerated_image_1781757213222.png';
 // @ts-ignore
+import fudgyBrownieImage from './assets/images/regenerated_image_1782547922979.png';
+// @ts-ignore
 import midnightBerryTorchImage from './assets/images/regenerated_image_1781757579056.png';
 // @ts-ignore
 import bandraNutellaGoldImage from './assets/images/regenerated_image_1781757585855.png';
 // @ts-ignore
 import peanutButterCrunchImage from './assets/images/regenerated_image_1781757763286.png';
 // @ts-ignore
-import foundationStackImage from './assets/images/regenerated_image_1781760354201.png';
+import foundationStackImage from './assets/images/regenerated_image_1781833293455.png';
+// @ts-ignore
+import coreElementsImage from './assets/images/regenerated_image_1781881025217.png';
+// @ts-ignore
+import cozyCaramelMaltImage from './assets/images/regenerated_image_1782548100775.png';
+// @ts-ignore
+import assemblyImage from './assets/images/regenerated_image_1782548907314.png';
 
 export const MENU_ITEMS: MenuItem[] = [
   // Classics
@@ -28,7 +36,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 219,
     description: 'Fresh toasted sugary marshmallow topped with rich Belgian chocolate curls between two dense double-chocolate chip brownie cookies.',
     category: 'classics',
-    image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80',
+    image: fudgyBrownieImage,
     isVeg: true,
   },
   // Signatures
@@ -77,7 +85,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 259,
     description: 'Cold whipped premium vanilla ice cream with butter caramel drizzle, malt, and toasted marshmallow fluff lining the cup.',
     category: 'shakes',
-    image: 'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=800&q=80',
+    image: cozyCaramelMaltImage,
     isVeg: true,
   }
 ];
@@ -155,7 +163,7 @@ export const CHRONOLOGY_ACTS: ChronologyAct[] = [
     subtitle: "Plump Fluffs meet Belgian Kakao",
     description: "Dark, premium Belgian chocolate blocks rest adjacent to vanilla bean-flecked marshmallow clouds on crisp parchment paper, awaiting the heat.",
     stylistSecret: "Mist the chocolate surface with ambient humidity to prevent visual powdery drying under hot lights.",
-    image: "https://images.unsplash.com/photo-1558961303-1d2019a50f4e?auto=format&fit=crop&w=800&q=80",
+    image: coreElementsImage,
     cameraSettings: { shutter: "1/125s", aperture: "f/1.8", iso: "200", focusPoint: "Edge-Contrast" }
   },
   {
@@ -164,7 +172,7 @@ export const CHRONOLOGY_ACTS: ChronologyAct[] = [
     subtitle: "Precision Stacking Under the Blowtorch",
     description: "Hands carefully balance the layers on wood. The chef fires the butane torch, positioning the golden cone of flame directly above the chocolate boundary.",
     stylistSecret: "A slight twist of the chef's wrist keeps the heat circling evenly, preventing high spots from burning.",
-    image: "https://images.unsplash.com/photo-1571506191715-41f1eceea97c?auto=format&fit=crop&w=800&q=80",
+    image: assemblyImage,
     cameraSettings: { shutter: "1/250s", aperture: "f/3.2", iso: "640", focusPoint: "Flame-Tip" }
   },
   {

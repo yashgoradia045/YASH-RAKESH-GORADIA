@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CHRONOLOGY_ACTS } from '../data';
 import { useToast } from './Toast';
-import { Camera, Eye, Map, Send, ChevronRight } from 'lucide-react';
+import { Eye, Send } from 'lucide-react';
 
 export default function SmoreChronology() {
   const { addToast } = useToast();
@@ -68,7 +68,7 @@ I want to book an interactive live-torched seating at your Bandra outlet. Please
         {/* Dynamic Showcase Panel */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          {/* Image & Viewfinder Overlay Container: spans 7 cols */}
+          {/* Image Container: spans 7 cols */}
           <div className="lg:col-span-7 relative min-h-[380px] lg:min-h-[460px]">
             <AnimatePresence mode="wait">
               <motion.div
@@ -77,59 +77,15 @@ I want to book an interactive live-torched seating at your Bandra outlet. Please
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.98, y: -12 }}
                 transition={{ duration: 0.35, ease: "easeInOut" }}
-                className="absolute inset-0 w-full h-full bg-stone-900 rounded-3xl p-4 flex items-center justify-center overflow-hidden group border border-stone-800 shadow-xl"
+                className="absolute inset-0 w-full h-full bg-stone-900 rounded-3xl overflow-hidden group border border-stone-200 shadow-xl"
               >
-                
-                {/* Camera Viewfinder Frame overlays */}
-                <div className="absolute inset-4 border border-white/20 pointer-events-none rounded-2xl flex flex-col justify-between p-4 z-20">
-                  
-                  {/* Top viewfinder diagnostics */}
-                  <div className="flex justify-between items-center text-[10px] font-mono text-white/70 tracking-widest">
-                    <span className="flex items-center gap-1">
-                      <Camera className="w-3 h-3 text-red-500 animate-pulse fill-red-500" />
-                      REC [SLOMO]
-                    </span>
-                    <span>FOKUS: {currentAct.cameraSettings.focusPoint}</span>
-                    <span>CHRUNCHIZZ_CAM</span>
-                  </div>
-
-                  {/* Viewfinder crosshairs */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-40 pointer-events-none">
-                    <div className="w-8 h-px bg-white" />
-                    <div className="h-8 w-px bg-white" />
-                    <div className="absolute w-16 h-16 border border-white rounded-full border-dashed" />
-                  </div>
-
-                  {/* Bottom camera diagnostics */}
-                  <div className="flex justify-between items-center text-[10px] font-mono text-white/70 tracking-wider bg-black/40 backdrop-blur-xs px-3 py-1.5 rounded">
-                    <span className="text-amber-400">TV: {currentAct.cameraSettings.shutter}</span>
-                    <span className="text-emerald-400">AV: {currentAct.cameraSettings.aperture}</span>
-                    <span className="text-blue-400">ISO: {currentAct.cameraSettings.iso}</span>
-                    <span>EV: +0.3</span>
-                  </div>
-                </div>
-
                 {/* Background image render */}
                 <img
                   src={currentAct.image}
                   alt={currentAct.title}
                   referrerPolicy="no-referrer"
-                  className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                
-                {/* Darkness shade gradient cover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/10 z-10" />
-
-                {/* Left corner caption */}
-                <div className="absolute bottom-6 left-6 z-20 text-white right-6">
-                  <span className="text-[10px] tracking-widest font-mono text-amber-400 uppercase font-bold bg-amber-950/80 px-2 py-1 rounded">
-                    ACT {currentAct.act} STORYBOARD
-                  </span>
-                  <h3 className="mt-2 text-xl font-extrabold tracking-tight font-sans text-white leading-tight">
-                    {currentAct.subtitle}
-                  </h3>
-                </div>
-
               </motion.div>
             </AnimatePresence>
           </div>
@@ -149,11 +105,14 @@ I want to book an interactive live-torched seating at your Bandra outlet. Please
                 <div className="space-y-6 font-sans">
                   <div>
                     <span className="text-[9px] font-sans font-black tracking-widest text-amber-800 bg-amber-100/85 rounded-full px-3 py-1 uppercase">
-                      CHEF DIRECTIVE
+                      ACT {currentAct.act} — CHEF DIRECTIVE
                     </span>
                     <h4 className="mt-4 font-serif font-semibold text-2xl text-stone-950 leading-tight">
                       {currentAct.title}
                     </h4>
+                    <p className="mt-1 text-xs font-mono font-medium tracking-wide text-amber-700 uppercase">
+                      {currentAct.subtitle}
+                    </p>
                     <p className="mt-3 text-stone-600 text-xs sm:text-sm leading-relaxed">
                       {currentAct.description}
                     </p>
